@@ -46,7 +46,7 @@
                         <div class="row">
 
                             @Html.DropDownListFor(model => model.Subcategoria.IdSubcategoria, new SelectList(Model.Subcategoria.Subcategorias, "IdSubcategoria", "Nombre"), "Selecciona una subcategoría", new { @class = "form-control" })
-
+                               
                         </div>
                         <div class="text-center">
                             <input class="btn btn-success" type="submit" name="@ViewBag.Accion" />
