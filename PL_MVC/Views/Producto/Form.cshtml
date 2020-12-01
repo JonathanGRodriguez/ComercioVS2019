@@ -42,7 +42,7 @@
                         </div>
                         <div class="row">
                             @Html.LabelFor(model => model.Subcategoria.IdSubcategoria, "Subcategoría", new { @class = "form-control" })
-                        </div>
+                        </div>  
                         <div class="row">
 
                             @Html.DropDownListFor(model => model.Subcategoria.IdSubcategoria, new SelectList(Model.Subcategoria.Subcategorias, "IdSubcategoria", "Nombre"), "Selecciona una subcategoría", new { @class = "form-control" })
