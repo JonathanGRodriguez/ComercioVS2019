@@ -1,0 +1,59 @@
+﻿@model ML.Producto
+@{
+    ViewBag.Title = "Form";
+}
+
+<h2>@ViewBag.Titulo</h2>
+
+<div class="container">
+    <div class="row">
+        @using(Html.BeginForm("Form", "Producto", FormMethod.Post, new { IdProducto=Model.IdProducto }))
+        {
+            <div class="row">
+                <div class="text-center">
+                    <div class="form-group" hidden="hidden">
+                        @Html.LabelFor(model => model.IdProducto, new { @class = "form-control" })
+                        @Html.TextBoxFor(model => model.IdProducto)
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="text-center">
+                    <div class="form-group">
+                        <div class="row">
+                            @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", placeholder = "Nombre del producto" })
+                        </div>
+                        <div class="row">
+                            @Html.TextBoxFor(model => model.Descripcion, new { @class = "form-control", placeholder = "Descripción del producto" })
+                        </div>
+                        <div class="row">
+                            @Html.TextBoxFor(model => model.Precio, new { @class = "form-control" })
+                        </div>
+                        <div class="row">
+                            @Html.TextBoxFor(model => model.Piezas, new { @class = "form-control" })
+                        </div>
+                        <div class="row">
+                            @Html.LabelFor(model => model.Subcategoria.Categoria.IdCategoria, "Categoría", new { @class = "form-control" })
+                        </div>
+                        <div class="row">
+
+                            @Html.DropDownListFor(model => model.Subcategoria.Categoria.IdCategoria, new SelectList(Model.Subcategoria.Categoria.Categorias, "IdCategoria", "Nombre"), "Selecciona una categoría", new { @class = "form-control" })
+
+                        </div>
+                        <div class="row">
+                            @Html.LabelFor(model => model.Subcategoria.IdSubcategoria, "Subcategoría", new { @class = "form-control" })
+                        </div>
+                        <div class="row">
+
+                            @Html.DropDownListFor(model => model.Subcategoria.IdSubcategoria, new SelectList(Model.Subcategoria.Subcategorias, "IdSubcategoria", "Nombre"), "Selecciona una subcategoría", new { @class = "form-control" })
+
+                        </div>
+                        <div class="text-center">
+                            <input class="btn btn-success" type="submit" name="@ViewBag.Accion" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

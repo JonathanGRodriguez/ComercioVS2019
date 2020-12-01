@@ -1,0 +1,94 @@
+﻿@model ML.Producto
+@{
+    ViewBag.Title = "GetAll";
+}
+
+<h2>GetAll</h2>
+
+<div class="container ">
+    <div class="row">
+        <div class="text-center">
+            <h1>Lista de productos</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-md-12">
+            <div class="text-right">
+                <a href="@Url.Action("Form", "Producto", new { IdProducto=Model.IdProducto })" class="btn btn-success">
+                    +
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-hover">
+                <tr>
+                    <th class="text-center">
+                        Editar
+                    </th>
+                    <th class="text-center">
+                        Id Producto
+                    </th>
+                    <th class="text-center">
+                        Subcategoria
+                    </th>
+                    <th class="text-center">
+                        Proveedor
+                    </th>
+                    <th class="text-center">
+                        Producto
+                    </th>
+                    <th class="text-center">
+                        Descripción
+                    </th>
+                    <th class="text-center">
+                        Precio
+                    </th>
+                    <th class="text-center">
+                        Piezas
+                    </th>
+                    <th class="text-center">
+                        Eliminar
+                    </th>
+                </tr>
+                @foreach(ML.Producto producto in Model.Productos)
+                {
+                    <tr>
+                        <th class="text-center">
+                            <a href="@Url.Action("Form", "Producto", producto)">
+                                <img style="height:20px; width:20px" src="C:\Users\Jonathan\Pictures\fondos\spiderman-wallpaper-desktop-05-zz-11apr18.png" />
+                            </a>
+                        </th>
+                        <td class="text-center">
+                            @producto.IdProducto
+                        </td>
+                        <td class="text-center">
+                            @producto.Subcategoria.Nombre
+                        </td>
+                        <td class="text-center">
+                            @producto.Proveedor.Nombre
+                        </td>
+                        <td class="text-center">
+                            @producto.Nombre
+                        </td>
+                        <td class="text-center">
+                            @producto.Descripcion
+                        </td>
+                        <td class="text-center">
+                            @producto.Precio
+                        </td>
+                        <td class="text-center">
+                            @producto.Piezas
+                        </td>
+                        <th class="text-center">
+                            <a href="@Url.Action("Delete", "Producto", producto)">
+                                <img class="card-img" src="C:\Users\Jonathan\Pictures\fondos\spidey-1-2.jpg" />
+                            </a>
+                        </th>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
